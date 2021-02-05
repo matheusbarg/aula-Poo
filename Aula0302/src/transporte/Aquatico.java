@@ -41,7 +41,7 @@ public class Aquatico extends Transporte {
 		System.out.println("Andando");
 	}
 	
-	public void navegarr() {
+	public void navegar() {
 		System.out.println("navegando");
 	}
 	
