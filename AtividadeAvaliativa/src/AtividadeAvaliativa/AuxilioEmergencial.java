@@ -37,6 +37,8 @@ public class AuxilioEmergencial {
 		}
 		return maiorTempo;
 	}
-	
+	public int contarElementos() {
+		return beneficiados.size();
+	}
 	
 }

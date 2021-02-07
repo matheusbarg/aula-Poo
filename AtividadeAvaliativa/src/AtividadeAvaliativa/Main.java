@@ -15,7 +15,7 @@ public class Main {
 		AuxilioEmergencial a= new AuxilioEmergencial();
 		int escolha=0;
 		int desempregado=0;
-		
+			
 			do {
 
 			System.out.println("Menu");
@@ -23,7 +23,8 @@ public class Main {
 			System.out.println("2 - Listar Benefeciados");
 			System.out.println("3 - Maior Tempo");
 			System.out.println("4 - Maior valor");
-			System.out.println("5 - Sair");
+			System.out.println("5 - Contar Pessoas");
+			System.out.println("6 - Sair");
 			escolha = teclado.nextInt();
 		
 		
@@ -87,8 +88,13 @@ public class Main {
 				a.maiorValor();
 			
 				break;
+				case 5:
+					System.out.println("Quantidade de pessoa cadastradas");
+					System.out.println(a.contarElementos());
+				
+					break;
 			}
-			}while(escolha!=5);
+			}while(escolha!=6);
 	
 	}
 	
