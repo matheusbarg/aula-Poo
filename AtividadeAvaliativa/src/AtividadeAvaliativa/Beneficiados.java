@@ -15,9 +15,10 @@ public class Beneficiados {
 	private boolean aposentado;
 	private int desempregado;
 	private int tempoBeneficio;
+	private boolean saoPaulo;
 
 	public Beneficiados(String nomeCompleto, int idade, String dataNasc, Categoria categoria, String estado,
-			boolean aposentado, int desempregado) {
+			boolean aposentado, int desempregado ) {
 		if (idade < 18) {
 			System.err.print("Voce nao tem direito ao beneficio por nao ter 18 anos" + "\n");
 		} else {
@@ -36,11 +37,14 @@ public class Beneficiados {
 		}
 		if (categoria == categoria.DESEMPREGADO) {
 			{
-				valorBeneficio = 1500;
+				this.valorBeneficio = 1500;
 			}
 		} else if (categoria == categoria.EMPREGADO) {
-			valorBeneficio = 1000;
+			this.valorBeneficio = 1000;
+		}else {
+			this.valorBeneficio = 200;
 		}
+		
 		if (desempregado < 6) {
 			this.desempregado = desempregado;
 			reducao6meses();
@@ -66,7 +70,7 @@ public class Beneficiados {
 	}
 
 	public double getValorBeneficio() {
-		return valorBeneficio * 2;
+		return valorBeneficio * this.tempoBeneficio;
 	}
 
 	public String getEstado() {
@@ -74,7 +78,7 @@ public class Beneficiados {
 	}
 
 	public double moraSaoPaulo() {
-		return valorBeneficio = (this.valorBeneficio * (10 / 100)) + this.valorBeneficio;
+		return this.valorBeneficio = (this.valorBeneficio * (10 / 100)) + this.valorBeneficio;
 	}
 
 	public double moraPara() {
@@ -94,7 +98,7 @@ public class Beneficiados {
 
 		return "nome: " + this.nomeCompleto + "\n" + "Data Nascimento: " + this.dataNasc + "\n" + "Categoria: "
 				+ this.categoria + "\n" + "Idade: " + this.idade + "\n" + "Estado: " + this.estado + "\n"
-				+ "Valor Beneficio R$: " + this.valorBeneficio + "\n" +   "Tempo Beneficio: " + getTempoBeneficio()
+				+ "Valor Beneficio R$: " + this.valorBeneficio + "\n" + "Tempo Beneficio: " + getTempoBeneficio() + "\n"
 				+ "Regras:" + "\n" + "O benefício de pessoas que moram em São Paulo terá acréscimo de 10%;" + "\n"
 				+ "O benefício só será concedido para maiores de 18 anos;" + "\n"
 				+ "O benefício de pessoas que moram no Pará terá acréscimo de 9%;" + "\n"
