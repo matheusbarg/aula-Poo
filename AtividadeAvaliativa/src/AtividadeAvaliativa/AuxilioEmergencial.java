@@ -16,6 +16,27 @@ public class AuxilioEmergencial {
 	
 	public ArrayList<Beneficiados> listarBeneficiados(){
 			return beneficiados;
+	}
+	
+	public Beneficiados maiorValor() {
+		Beneficiados maiorValor = null;
+		for(Beneficiados b :beneficiados) {
+				if(maiorValor == null||b.getValorBeneficio()<maiorValor.getValorBeneficio()) {
+					maiorValor=b;
+				}
 		}
+		return maiorValor;
+	}
+	
+	public Beneficiados maiorTempo() {
+		Beneficiados maiorTempo = null;
+		for(Beneficiados b :beneficiados) {
+				if(maiorTempo == null||b.getTempoBeneficio()<maiorTempo.getTempoBeneficio()) {
+					maiorTempo=b;
+				}
+		}
+		return maiorTempo;
+	}
+	
 	
 }

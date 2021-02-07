@@ -3,6 +3,8 @@ package AtividadeAvaliativa;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class Main {
 
 	
@@ -11,36 +13,82 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
 		AuxilioEmergencial a= new AuxilioEmergencial();
-			
-		String sair = null;
+		int escolha=0;
+		int desempregado=0;
 		
-		while(sair=="N"||sair =="n") {
-			System.out.println("Digite seu nome completo:");
-			String nome= teclado.next();
-			System.out.println("Digite sua data de nascimento:");
-			String dataNasc = teclado.next();
-			System.out.println("Informe sua Idade");
-			int idade = teclado.nextInt();
-			System.out.println("Digite sua situção entre: 1-EMPREGADO,2-DESEMPREGADO,3-EMPREGADOR");
-			int opcao = teclado.nextInt();
-			Categoria categoria = null;
-			if(opcao==1) {
-				categoria=categoria.EMPREGADO;
-			}else if(opcao==2) {
-				categoria=categoria.DESEMPREGADO;
-			}else {
-				categoria=categoria.EMPREGADOR;
-			}
-			System.out.println("Informe seu Estado");
-			String estado = teclado.next().toUpperCase();
-		
-			Beneficiados p1=new Beneficiados(nome,idade,dataNasc,categoria,estado);
-			a.addBeneficiados(p1);
-			System.out.println("Deseja Continuar S para Sim ou N para Nao");
-			 sair = teclado.nextLine();
-			};
-			
+			do {
 
+			System.out.println("Menu");
+			System.out.println("1 - Cadastrar nova pessoa");
+			System.out.println("2 - Listar Benefeciados");
+			System.out.println("3 - Maior Tempo");
+			System.out.println("4 - Maior valor");
+			System.out.println("5 - Sair");
+			escolha = teclado.nextInt();
+		
+		
+			switch (escolha) {
+			case 1:
+				teclado.nextLine();
+				System.out.println("Digite seu nome completo:");
+				String nome= teclado.nextLine();
+				System.out.println("Digite sua situção entre: 1-EMPREGADO,2-DESEMPREGADO,3-EMPREGADOR");
+				int opcao = teclado.nextInt();
+				teclado.nextLine();
+				Categoria categoria = null;
+				if(opcao==1) {
+					categoria=categoria.EMPREGADO;
+				}
+				if(opcao==2) { 
+					categoria=categoria.DESEMPREGADO;
+					System.out.println("A quanto tempo esta desempregado ?");
+					desempregado= teclado.nextInt();
+				}
+				if(opcao==3) { 
+					categoria=categoria.EMPREGADOR;
+				}
+				teclado.nextLine();
+				System.out.println("Digite sua data de nascimento:");
+				String dataNasc = teclado.nextLine();
+				System.out.println("Informe sua Idade");
+				int idade = teclado.nextInt();
+				teclado.nextLine();
+				System.out.println("Informe seu Estado: ");
+				String estado = teclado.nextLine().trim();
+				System.out.println("É aposentado 1- sim e 2- não ?");
+				int apos=teclado.nextInt();
+				boolean aposentado;
+				teclado.nextLine();
+				if(apos==1) {
+					aposentado=true;
+				}else {
+					aposentado=false;
+				}
+				
+				Beneficiados p1=new Beneficiados(nome,idade,dataNasc,categoria,estado,aposentado,desempregado);
+				if(p1.getEstado()=="sao paulo") {
+					p1.moraSaoPaulo();
+				}
+				
+				if(p1.getEstado()=="Para") {
+					p1.moraSaoPaulo();
+				}
+				a.addBeneficiados(p1);
+				break;
+			case 2:
+				System.out.println(a.listarBeneficiados());
+			
+				break;
+			case 3:
+				a.maiorTempo();
+			
+				break;
+			case 4:
+				a.maiorValor();
+			
+				break;
+			}
+			}while(escolha!=5);
 	
 	}
 	
