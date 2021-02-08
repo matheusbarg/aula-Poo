@@ -5,9 +5,9 @@ public class Pessoa {
 	public String nome;
 	public int idade;
 	public String formaPagamento;
-	public double valorCompra;
+	public float valorCompra;
 	
-	public Pessoa(String nome, int idade, String formaPagamento, double valorCompra) {
+	public Pessoa(String nome, int idade, String formaPagamento, float valorCompra) {
 		this.nome = nome;
 		this.idade = idade;
 		this.formaPagamento = formaPagamento;
@@ -26,7 +26,7 @@ public class Pessoa {
 		return formaPagamento;
 	}
 
-	public double getValorCompra() {
+	public float getValorCompra() {
 		return valorCompra;
 	}
 	
