@@ -16,7 +16,8 @@ public class Main {
    System.out.println("Retangulo "+rt.getArea());
    System.out.println("Circulo "+c.getArea());
    System.out.println("Quadrado "+q.getArea());
-   System.out.println("Triangulo "+t.getArea());
+   System.out.println("Triangulo "
+   		+ ""+t.getArea());
    
    
 	
