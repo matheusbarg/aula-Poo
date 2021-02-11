@@ -2,7 +2,7 @@ package AtividadeAvaliativa;
 
 import java.util.ArrayList;
 
-public class Beneficiados {
+public class Beneficiado {
 
 	private String nomeCompleto;
 	private String dataNasc;
@@ -17,7 +17,7 @@ public class Beneficiados {
 	private int tempoBeneficio;
 	private boolean saoPaulo;
 
-	public Beneficiados(String nomeCompleto, int idade, String dataNasc, Categoria categoria, String estado,
+	public Beneficiado(String nomeCompleto, int idade, String dataNasc, Categoria categoria, String estado,
 			boolean aposentado, int desempregado ) {
 		if (idade < 18) {
 			System.err.print("Voce nao tem direito ao beneficio por nao ter 18 anos" + "\n");
@@ -78,7 +78,7 @@ public class Beneficiados {
 	}
 
 	public double moraSaoPaulo() {
-		return this.valorBeneficio = (this.valorBeneficio * (10 / 100)) + this.valorBeneficio;
+		return  (this.valorBeneficio * (10 / 100)) + this.valorBeneficio;
 	}
 
 	public double moraPara() {

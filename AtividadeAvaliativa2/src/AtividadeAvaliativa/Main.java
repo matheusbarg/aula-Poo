@@ -7,16 +7,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
 public class Main {
-
 	
-		
 		 
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
-	
+		Connection conn = new ConnectionFactory().getConnection();
 		
 		AuxilioEmergencial a= new AuxilioEmergencial();
 		int escolha=0;
@@ -102,8 +98,12 @@ public class Main {
 			}
 			}while(escolha!=6);
 	
+			
+	
 	}
 	
 	
-
+	
 }
+	
+
