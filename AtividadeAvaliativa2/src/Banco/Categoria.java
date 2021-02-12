@@ -1,4 +1,4 @@
-package AtividadeAvaliativa;
+package Banco;
 
 public enum Categoria {
 	EMPREGADO,

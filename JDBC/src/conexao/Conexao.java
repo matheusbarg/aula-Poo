@@ -1,4 +1,4 @@
-package AtvidadeAvaliativa;
+package conexao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

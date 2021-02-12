@@ -1,6 +1,4 @@
-package AtividadeAvaliativa;
-
-import java.util.ArrayList;
+package Banco;
 
 public class Beneficiado {
 
@@ -17,40 +15,7 @@ public class Beneficiado {
 	private int tempoBeneficio;
 	private boolean saoPaulo;
 
-	public Beneficiado(String nomeCompleto, int idade, String dataNasc, Categoria categoria, String estado,
-			boolean aposentado, int desempregado ) {
-		if (idade < 18) {
-			System.err.print("Voce nao tem direito ao beneficio por nao ter 18 anos" + "\n");
-		} else {
-			this.idade = idade;
-		}
-		this.nomeCompleto = nomeCompleto;
-		this.dataNasc = dataNasc;
-		this.categoria = categoria;
-		this.estado = estado;
-		if (aposentado == true) {
-			this.aposentado = aposentado;
-			aposentado();
-			tempoBeneficio = 6;
-		} else {
-			this.aposentado = aposentado;
-		}
-		if (categoria == categoria.DESEMPREGADO) {
-			{
-				this.valorBeneficio = 1500;
-			}
-		} else if (categoria == categoria.EMPREGADO) {
-			this.valorBeneficio = 1000;
-		}else {
-			this.valorBeneficio = 200;
-		}
-		
-		if (desempregado < 6) {
-			this.desempregado = desempregado;
-			reducao6meses();
-		} else {
-			this.desempregado = desempregado;
-		}
+	public Beneficiado() {
 	}
 
 	public String getNomeCompleto() {
@@ -78,7 +43,7 @@ public class Beneficiado {
 	}
 
 	public double moraSaoPaulo() {
-		return  (this.valorBeneficio * (10 / 100)) + this.valorBeneficio;
+		return (this.valorBeneficio * (10 / 100)) + this.valorBeneficio;
 	}
 
 	public double moraPara() {
@@ -105,5 +70,77 @@ public class Beneficiado {
 				+ "O Se estiver desempregado há menos de 6 meses terá uma redução de 10%;" + "\n"
 				+ "O benefício será de 6 meses para aposentados ?";
 
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	public double getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+	public double getTempoDesempregado() {
+		return tempoDesempregado;
+	}
+
+	public void setTempoDesempregado(double tempoDesempregado) {
+		this.tempoDesempregado = tempoDesempregado;
+	}
+
+	public boolean isAposentado() {
+		return aposentado;
+	}
+
+	public void setAposentado(boolean aposentado) {
+		this.aposentado = aposentado;
+	}
+
+	public int getDesempregado() {
+		return desempregado;
+	}
+
+	public void setDesempregado(int desempregado) {
+		this.desempregado = desempregado;
+	}
+
+	public boolean isSaoPaulo() {
+		return saoPaulo;
+	}
+
+	public void setSaoPaulo(boolean saoPaulo) {
+		this.saoPaulo = saoPaulo;
+	}
+
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
+	}
+
+	public void setDataNasc(String dataNasc) {
+		this.dataNasc = dataNasc;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public void setValorBeneficio(double valorBeneficio) {
+		this.valorBeneficio = valorBeneficio;
+	}
+
+	public void setTempoBeneficio(int tempoBeneficio) {
+		this.tempoBeneficio = tempoBeneficio;
 	}
 }
