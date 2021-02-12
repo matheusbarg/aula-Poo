@@ -175,27 +175,34 @@ public class AuxilioEmergencial {
 	}
 
 	private void persisteBeneficiado(Beneficiado beneficiado) {
-		String comando = "CREATE TABLE IF NOT EXISTS BENEFICIADO ("
-				+ "id serial not null,"
-				+ "nome varchar(40) not null,"
-				+ "data_nascimento varchar(15) not null,"
-				+ "categoria int(8) not null,"
-				+ "idade int(8) not null,"
-				+ "valor_beneficio double(8) not null,"
-				+ "tempo_beneficio varchar(15) not null);";
+		String drop = "drop TABLE IF EXISTS BENEFICIADO;";
+		String comando = "CREATE TABLE IF NOT EXISTS BENEFICIADO("// 
+				+ "id serial not null,"//
+				+ "nome varchar(40) not null,"// 
+				+ "data_nascimento varchar(15) not null,"// 
+				+ "categoria int not null,"//
+				+ "estado varchar(20) not null,"//
+				+ "idade int not null,"// 
+				+ "valor_beneficio decimal(2) not null,"//
+				+ "tempo_beneficio int not null);";
 
 		try {
 			Connection conn = new ConnectionFabrica().getConnection();
 			Statement st = conn.createStatement();
+			st.execute(drop);
 			st.execute(comando);
 
-			String insert = "INSERT INTO BENEFECIADO (NOME, DATA_NASCIMENTO, CATEGORIA, IDADE, ESTADO, VALOR_BENEFICIO,TEMPO_BENEFICIO)"
-					+ "values (" + beneficiado.getNomeCompleto() + "," + beneficiado.getDataNasc() + ","
-					+ beneficiado.getCategoria().ordinal() + "," + beneficiado.getIdade() + ","
-					+ beneficiado.getEstado() + "," + beneficiado.getValorBeneficio() + ","
+			String insert = "INSERT INTO BENEFICIADO (NOME, DATA_NASCIMENTO, CATEGORIA, IDADE, ESTADO, VALOR_BENEFICIO,TEMPO_BENEFICIO)"
+					+ "values ('" + beneficiado.getNomeCompleto() + "','"// 
+					+ beneficiado.getDataNasc() + "',"//
+					+ beneficiado.getCategoria().ordinal() + ","// 
+					+ beneficiado.getIdade() + ",'"//
+					+ beneficiado.getEstado() + "',"// 
+					+ beneficiado.getValorBeneficio() + ","//
 					+ beneficiado.getTempoBeneficio() + ");";
 
 			st.execute(insert);
+			System.out.println("Cadastrou!!");
 		} catch (SQLException e) {
 			System.out.println("Não foi possível salvar este registro! " + e.getMessage());
 		}
