@@ -77,18 +77,18 @@ public class AuxilioEmergencial {
 		try {
 			Connection conn = new ConnectionFabrica().getConnection();
 			Statement statement = conn.createStatement();
-			String select = "SELECT ID, NOME, DATA_NASCIMENTO, CATEGORIA, IDADE, ESTADO, VALOR_BENEFICIO,TEMPO_BENEFICIO from BENEFECIADO";
+			String select = "SELECT * FROM BENEFECIADO";
 			ResultSet resultSet = statement.executeQuery(select);
 
 			while (resultSet.next()) {
-				System.out.println("Id: " + resultSet.getInt("id"));
-				System.out.println("Nome: " + resultSet.getString("nome"));
-				System.out.println("Data Nascimento: " + resultSet.getString("data_nascimento"));
-				System.out.println("Categoria: " + resultSet.getString("categoria"));
-				System.out.println("Idade: " + resultSet.getInt("idade"));
-				System.out.println("Estado: " + resultSet.getString("estado"));
-				System.out.println("Valor Beneficio: " + resultSet.getInt("valor_beneficio"));
-				System.out.println("Tempo Beneficio: " + resultSet.getString("tempo_beneficio"));
+				System.out.println("Id: " + resultSet.getInt("ID"));
+				System.out.println("Nome: " + resultSet.getString("NOME"));
+				System.out.println("Data Nascimento: " + resultSet.getString("DATA_NASCIMENTO"));
+				System.out.println("Categoria: " + resultSet.getString("CATEGORIA"));
+				System.out.println("Idade: " + resultSet.getInt("IDADE"));
+				System.out.println("Estado: " + resultSet.getString("ESTADO"));
+				System.out.println("Valor Beneficio: " + resultSet.getInt("VALOR_BENEFICIO"));
+				System.out.println("Tempo Beneficio: " + resultSet.getString("TEMPO_BENEFICIO"));
 			}
 
 			System.out.println(".....................");
